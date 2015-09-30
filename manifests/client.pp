@@ -63,13 +63,21 @@ class netbackup::client(
                               'nbtar']
           $default_init_script_path = '/etc/init.d/netbackup'
         }
-        '6','7': {
+        '6': {
           $default_client_packages = ['SYMCnbclt',
                               'SYMCnbjava',
                               'SYMCnbjre',
                               'SYMCpddea',
                               'VRTSpbx',
                               'nbtar']
+          $default_init_script_path = '/etc/init.d/netbackup'
+        }
+        '7': {
+          $default_client_packages = ['SYMCnbclt',
+                              'SYMCnbjava',
+                              'SYMCnbjre',
+                              'SYMCpddea',
+                              'VRTSpbx']
           $default_init_script_path = '/etc/init.d/netbackup'
         }
         default: {
