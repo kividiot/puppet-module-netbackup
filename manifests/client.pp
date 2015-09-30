@@ -17,6 +17,7 @@ class netbackup::client(
   $nb_bin_new_file              = '/usr/openv/netbackup/bin/bpcd_new',
   $nb_bin_path                  = '/usr/openv/netbackup/bin',
   $server                       = "netbackup.${::domain}",
+  $media_server                 = "netbackup.${::domain}",
   $symcnbclt_package_source     = '/var/tmp/nbclient/SYMCnbclt.pkg',
   $symcnbclt_package_adminfile  = '/var/tmp/nbclient/admin',
   $symcnbjava_package_source    = '/var/tmp/nbclient/SYMCnbjava.pkg',
@@ -62,7 +63,7 @@ class netbackup::client(
                               'nbtar']
           $default_init_script_path = '/etc/init.d/netbackup'
         }
-        '6': {
+        '6','7': {
           $default_client_packages = ['SYMCnbclt',
                               'SYMCnbjava',
                               'SYMCnbjre',
@@ -72,7 +73,7 @@ class netbackup::client(
           $default_init_script_path = '/etc/init.d/netbackup'
         }
         default: {
-          fail("netbackup::client is supported on RedHat lsbmajdistrelease 5 and 6. Your lsbmajdistrelease is identified as ${::lsbmajdistrelease}")
+          fail("netbackup::client is supported on RedHat lsbmajdistrelease 5, 6 and 7. Your lsbmajdistrelease is identified as ${::lsbmajdistrelease}")
         }
       }
     }
